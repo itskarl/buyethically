@@ -14,6 +14,7 @@
     <b id="this_is_upc"> </b> <br>
 
     <%= @req['item']['company_name'] if @req %>
+    <%= @req['item']['manufacturer'] if @req %>
 
 
 
@@ -115,7 +116,6 @@
 
 
         }
-
 
         // Start/stop scanner
         document.getElementById("btn").addEventListener("click", function () {
