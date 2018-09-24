@@ -1,7 +1,17 @@
 
     <!-- Div to show the scanner -->
     <div id="scanner-container"></div>
+
     <input type="button" id="btn" value="Start/Stop the scanner" />
+    <br>
+
+    <%= text_field_tag :upc_input %><br>
+
+
+
+
+
+
 
 
     <script>
@@ -87,6 +97,7 @@
 
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                document.getElementById('upc_input').value = result.codeResult.code;
             });
         }
 
