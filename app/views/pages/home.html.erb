@@ -5,7 +5,9 @@
     <input type="button" id="btn" value="Start/Stop the scanner" />
     <br>
 
-    <%= form_tag(root_path, method: :get) do %>
+    <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
+
+
     <%= hidden_field_tag :upc_input %><br>
     <% end %>
 
@@ -104,7 +106,9 @@
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
                 document.getElementById('upc_input').value = result.codeResult.code;
-                document.getElementById('this_is_upc').innerHTML = result.codeResult.code
+                document.getElementById('this_is_upc').innerHTML = result.codeResult.code;
+                document.forms["acquire_upc"].submit();
+
             });
         }
 
