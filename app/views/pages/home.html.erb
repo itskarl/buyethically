@@ -5,9 +5,13 @@
     <input type="button" id="btn" value="Start/Stop the scanner" />
     <br>
 
+    <%= form_tag(root_path, method: :get) do %>
     <%= hidden_field_tag :upc_input %><br>
+    <% end %>
 
-    <b id="this_is_upc"> </b>
+    <b id="this_is_upc"> </b> <br>
+
+    <%= @req['item']['company_name'] if @req %>
 
 
 
