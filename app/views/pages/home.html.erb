@@ -5,13 +5,17 @@
     <input type="button" id="btn" value="Start/Stop the scanner" />
     <br>
 
+
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
-
-
     <%= hidden_field_tag :upc_input %><br>
     <% end %>
 
     <b id="this_is_upc"> </b> <br>
+
+    <% flash.each do |key, value| %>
+  <div><%= value %></div>
+<% end %>
+
 
     <%= @req['items'][0]['brandName'] if @req %><br>
     <%= @req['items'][0]['name'] if @req %><br>
