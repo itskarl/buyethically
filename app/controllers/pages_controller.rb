@@ -11,9 +11,9 @@ class PagesController < ApplicationController
       # @doc = Nokogiri::HTML(open("https://www.barcodable.com/upc/#{searched}"))
       # @manufacturer = @doc.search('p')[1].text
     end
-
-    rescue StandardError
-    rescue Exception
+    # 
+    # rescue StandardError
+    # rescue Exception
 
   end
 
