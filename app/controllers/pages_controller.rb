@@ -2,18 +2,18 @@ class PagesController < ApplicationController
   def home
     if params[:upc_input]
       searched = params[:upc_input]
-      @data = Curl::Easy.perform("https://www.digit-eyes.com/gtin/v2_0/?upcCode=#{searched}&field_names=all&language=en&app_key=/+90u/IFDVg6&signature=KN/BBmEUE4tKFPemTydKvRdmADY=")
+      @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{search}")
       @req = JSON.parse(@data.body_str)
-
-      @company = @req['manufacturer']['company']
-
+      @manufacturer = @req['item']['manufacturer']
+      @company = @req['item']['company_name']
+      #
       # require 'open-uri'
       # @doc = Nokogiri::HTML(open("https://www.barcodable.com/upc/#{searched}"))
       # @manufacturer = @doc.search('p')[1].text
     end
 
-    # rescue StandardError
-    # rescue Exception
+    rescue StandardError
+    rescue Exception
 
   end
 
