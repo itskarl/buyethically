@@ -13,9 +13,9 @@
 
     <b id="this_is_upc"> </b> <br>
 
-    <%= @req['item']['company_name'] if @req %>
-    <%= @req['item']['manufacturer'] if @req %>
-
+    <%= @req['items'][0]['brandName'] if @req %><br>
+    <%= @req['items'][0]['name'] if @req %><br>
+    <img src="<%= @req['items'][0]['thumbnailImage'] if @req %>">
 
 
 
