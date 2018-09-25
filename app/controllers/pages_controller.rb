@@ -5,7 +5,8 @@ class PagesController < ApplicationController
       @data = Curl::Easy.perform("http://api.walmartlabs.com/v1/items?apiKey=e7cvndf2d9pv8yv77cgnebcg&upc=#{searched}")
       @req = JSON.parse(@data.body_str)
       @manufacturer = @req['item']['manufacturer']
-      # 
+      @company = @req['item']['company_name']
+      #
       # require 'open-uri'
       # @doc = Nokogiri::HTML(open("https://www.barcodable.com/upc/#{searched}"))
       # @manufacturer = @doc.search('p')[1].text
