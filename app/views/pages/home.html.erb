@@ -7,12 +7,18 @@
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
 
+
     <%= hidden_field_tag :upc_input %><br>
     <% end %>
 
     <b id="this_is_upc"> </b> <br>
-    <%= @company %><br>
-    <%= @manufacturer %>
+
+    <%= @req['item']['company_name'] if @req %>
+    <%= @req['item']['manufacturer'] if @req %>
+
+
+
+
 
 
 
