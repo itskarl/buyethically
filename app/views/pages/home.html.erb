@@ -13,9 +13,11 @@
 
     <b id="this_is_upc"> </b> <br>
 
-    <%= @req['item']['company_name'] if @req %><br>
-    <% if @req['item']['matched_items'] != nil   %>
-    <%= @req['item']['matched_items'][0]['manufacturer'] %>
+    <% if @req %>
+      <%= @req['item']['company_name']  %><br>
+      <% if @req['item']['matched_items'] != nil   %>
+      <%= @req['item']['matched_items'][0]['manufacturer'] %>
+      <% end %>
     <% end %>
 
 
