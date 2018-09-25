@@ -13,11 +13,11 @@
     <b id="this_is_upc"> </b> <br>
 
 
-
-    <%= @req['items'][0]['brandName'] if @req %><br>
-    <%= @req['items'][0]['name'] if @req %><br>
-    <img src="<%= @req['items'][0]['thumbnailImage'] if @req %>">
-
+<% if @req %>
+    <%= @req['items'][0]['brandName'] if @req['items'][0]['brandName']  %><br>
+    <%= @req['items'][0]['name'] if @req['items'][0]['name'] %><br>
+    <img src="<%= @req['items'][0]['thumbnailImage'] if @req['items'][0]['thumbnailImage'] %>">
+<% end %>
 
 
 
