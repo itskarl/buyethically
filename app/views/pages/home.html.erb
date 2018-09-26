@@ -18,6 +18,7 @@
         Company: <%= @req['item']['company_name'] if @req['item']['company_name']  %><br>
           <% if @req['item']['matched_items'] != nil   %>
             Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
+        
           <% end %>
           <%= @matched_company if @matched_company %>
         <% else %>
