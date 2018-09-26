@@ -15,11 +15,11 @@ class PagesController < ApplicationController
       #creating an abbreviation from the company name to parse through the API
       if @thecompany[0..3].chars.count == 4
         @company_abbrev = @thecompany[0..3].downcase
-        @matched_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
+        @matched_company = @req2.find {|x| x['company'].downcase.gsub("the ", "").match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
       end
       if @matched_company == nil
-        @company_abbrev = @themanufacturer[0..3].downcase
-        @matched_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
+        @company_abbrev = @themanufacturer[0..3].downcase if @themanufacturer
+        @matched_company = @req2.find {|x| x['company'].downcase.gsub("the ", "").match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
       end
 
       #now comparing company found on UPC to list of companies in API
@@ -27,8 +27,8 @@ class PagesController < ApplicationController
 
     end
 
-    rescue StandardError
-    rescue Exception
+    # rescue StandardError
+    # rescue Exception
   end
 
   def about
