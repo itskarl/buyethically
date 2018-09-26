@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       @req2 = JSON.parse(@data2.body_str)
 
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "") if @req['item']['company_name']
-      @themanufacturer = @req['item']['matched_items'][0]['manufacturer'].downcase.gsub("the ", "") if @req['item']['matched_items'] != nil 
+      @themanufacturer = @req['item']['matched_items'][0]['manufacturer'].downcase.gsub("the ", "") if @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items']
 
       #creating an abbreviation from the company name to parse through the API
       if @thecompany[0..3].chars.count == 4
