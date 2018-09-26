@@ -10,20 +10,25 @@ class PagesController < ApplicationController
       @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/blorps/asdasdasdasd")
       @req2 = JSON.parse(@data2.body_str)
 
+      @thecompany = @req['item']['company_name']
+      @themanufacturer = @req['item']['matched_items'][0]['manufacturer']
       #creating an abbreviation from the company name to parse through the API
-      if @req['item']['company_name'][0..3].chars.count == 4
-        @company_abbrev = @req['item']['company_name'][0..3].downcase
-      else
-        @company_abbrev = @req['item']['matched_items'][0]['manufacturer'][0..3].downcase
+      if @thecompany[0..3].chars.count == 4
+        @company_abbrev = @thecompany[0..3].downcase
+        @matched_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
+      end
+      if @matched_company == nil
+        @company_abbrev = @themanufacturer[0..3].downcase
+        @matched_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
       end
 
       #now comparing company found on UPC to list of companies in API
-      @matched_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}['company'] if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
+
 
     end
 
-    # rescue StandardError
-    # rescue Exception
+    rescue StandardError
+    rescue Exception
   end
 
   def about
