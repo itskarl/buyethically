@@ -7,11 +7,13 @@ class PagesController < ApplicationController
 
       # require 'open-uri'
       # @doc = Nokogiri::HTML(open("https://www.barcodable.com/upc/043695071238"))
+
+      # this is my own API, where we find company info
       @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/blorps/asdasdasdasd")
       @req2 = JSON.parse(@data2.body_str)
 
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "") if @req['item']['company_name']
-      @themanufacturer = @req['item']['matched_items'][0]['manufacturer'].downcase.gsub("the ", "") if @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items']
+      @themanufacturer = @req['item']['matched_items'][0]['manufacturer'].downcase.gsub("the ", "") if @req['item']['matched_items'] != []
 
       #creating an abbreviation from the company name to parse through the API
       if @thecompany[0..3].chars.count == 4
