@@ -44,10 +44,10 @@ class PagesController < ApplicationController
         @company_score = @found_company['score']
 
         #newsAPI here!
-        @newssearchterm = @matched_company.gsub(/[^0-9A-Za-z]/, ' ').strip.gsub!(/\s/,'+')
+        @newssearchterm = URI.encode(@matched_company)
         @daterange = (Time.now - 28.days).strftime("%C%y-%m-%d")
 
-        @newsdata = Curl::Easy.perform("https://newsapi.org/v2/everything?q=#{@newssearchterm}&from=#{@daterange}&sortBy=popularity&apiKey=bcd7a32090a74b88b8730f2c5540a792")
+        @newsdata = Curl::Easy.perform("https://newsapi.org/v2/everything?q=#{@newssearchterm}%20company&from=#{@daterange}&sortBy=popularity&apiKey=bcd7a32090a74b88b8730f2c5540a792")
         p @newssearchterm
 
         @newsreq = JSON.parse(@newsdata.body_str)

@@ -14,9 +14,28 @@
  *= require_self
  */
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 main {
   display: flex;
   width: 320px;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+
+.scan-and-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#scanner-container {
+  border-radius: 100px;
+  overflow: hidden;
 }
