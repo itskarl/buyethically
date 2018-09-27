@@ -83,13 +83,13 @@ a:hover, a:visited, a::selection {
 #btn {
   height: 30px;
   width: 250px;
-  background-color: rgba(180, 173, 234, 1);
+  background-color: #51afdc;
   color: rgba(253, 255, 247, 1);
   border-radius: 15px;
 }
 
 #btn:hover, #btn::selection {
-  background-color: rgba(139, 133, 181, 1);
+  background-color: #006296;
   cursor: pointer;
 }
 
@@ -113,4 +113,28 @@ a:hover, a:visited, a::selection {
 .general-info-right img {
   width: 60px;
   height: 60px;
+  padding: 10px;
+}
+
+.score-visuals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-visuals div {
+ font-size: 40px;
+ background-color: pink;
+ border-radius: 50%;
+ width: 60px;
+ height: 60px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.53);
+ padding: 10px;
+ box-sizing: border-box;
+ font-family: 'Fredoka One', cursive;
 }

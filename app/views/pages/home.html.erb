@@ -32,17 +32,35 @@
           Company Score: <%= @company_score %>
            <% case @company_score %>
            <% when 0..49 %>
-            F<img src="emoticons/score_F.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(193, 58, 55)"> F </div>
+            <img src="emoticons/score_F.png">
+          </div>
            <% when 50 %>
-            ?<img src="emoticons/score_none.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(140, 140, 140)"> ? </div>
+            <img src="emoticons/score_none.png">
+          </div>
            <% when 51..64 %>
-            D<img src="emoticons/score_D.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(228, 149, 57)"> D </div>
+            <img src="emoticons/score_D.png">
+          </div>
            <% when 65..75 %>
-           C<img src="emoticons/score_C.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(224, 222, 61)"> C </div>
+             <img src="emoticons/score_C.png">
+          </div>
            <% when 76..85 %>
-           B<img src="emoticons/score_B.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(121, 153, 63)"> B </div>
+           <img src="emoticons/score_B.png">
+         </div>
            <% when 86..100 %>
-           A <img src="emoticons/score_A.png">
+           <div class="score-visuals">
+             <div class="letterscore" style="background-color: rgb(102, 171, 82)"> A </div>
+            <img src="emoticons/score_A.png">
+          </div>
            <% end %>
           <% end %>
 
@@ -70,10 +88,10 @@
           <div class="news-section">
             <!-- NEWS! -->
             <% if @newsreq && @newsreq.first[1] == "ok" %>
-              <% @newsarticles[0..5].each do |x| %>
+              <% @newsarticles[0..4].each do |x| %>
                 <a href="<%= x['url']%>"><%= x['title']%></a><br>
                 <small>(<%= x['source']['name']%>)</small><br>
-                <%= x['description']%><br>
+                <%= x['description']%> <br>
                 <br>
               <%end%>
             <% end %>
