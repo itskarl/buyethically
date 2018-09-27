@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     if params[:upc_input]
       searched = params[:upc_input]
       @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{searched}")
+      # @data = Curl::Easy.perform(jsontest.json)
       @req = JSON.parse(@data.body_str)
 
       # require 'open-uri'
@@ -43,12 +44,12 @@ class PagesController < ApplicationController
         @company_score = @found_company['score']
 
         #newsAPI here!
-        @newssearchterm = @matched_company.gsub(/[^0-9A-Za-z]/, ' ').gsub!(/\s/,'+')
+        @newssearchterm = @matched_company.gsub(/[^0-9A-Za-z]/, ' ').strip.gsub!(/\s/,'+')
         @daterange = (Time.now - 28.days).strftime("%C%y-%m-%d")
 
         @newsdata = Curl::Easy.perform("https://newsapi.org/v2/everything?q=#{@newssearchterm}&from=#{@daterange}&sortBy=popularity&apiKey=bcd7a32090a74b88b8730f2c5540a792")
-        p @matched_company
-        p @daterange
+        p @newssearchterm
+
         @newsreq = JSON.parse(@newsdata.body_str)
 
         @newsarticles = @newsreq['articles']
