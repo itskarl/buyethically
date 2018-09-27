@@ -25,11 +25,9 @@
     <!-- NEWS! -->
     <% if @newsreq && @newsreq.first[1] == "ok" %>
       <% @newsarticles[0..5].each do |x| %>
-      Source:<%= x['source']%><br>
-      Title:<%= x['title']%><br>
+      <a href="<%= x['url']%>"><%= x['title']%></a> (<%= x['source']['name']%>)<br>
       Desc:<%= x['description']%><br>
-      Url:<%= x['url']%><br>
-      Content:<%= x['content']%><br>
+<br>
       <%end%>
     <% end %>
     <!-- NEWS! -->

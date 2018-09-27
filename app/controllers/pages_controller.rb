@@ -18,7 +18,7 @@ class PagesController < ApplicationController
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "")
       end
 
-      if @req['item']['matched_items'][0]
+      if @req['item']['matched_items'][0] && @req['item']['matched_items'][0]['manufacturer']
         @themanufacturer = @req['item']['matched_items'][0]['manufacturer'].downcase.gsub("the ", "")
       else
         @themanufacturer = nil
