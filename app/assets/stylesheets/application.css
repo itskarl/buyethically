@@ -28,7 +28,7 @@
 body {
   display: flex;
   align-items: center;
-  justify-content: center;
+
   flex-direction: column;
   background-color: rgba(253, 255, 247, 1);
   font-size: 14px;
@@ -38,10 +38,9 @@ body {
 main {
   display: flex;
   width: 320px;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
-    color: rgba(80, 81, 79, 1);
+  color: rgba(80, 81, 79, 1);
 }
 
 a {
@@ -59,7 +58,11 @@ a:hover, a:visited, a::selection {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+    height: 100vh;
 }
+
 
 #scanner-container {
   display: flex;
@@ -70,8 +73,8 @@ a:hover, a:visited, a::selection {
 
 #scanner-container video {
   width: 300px;
-
   padding: 10px;
+  border-radius: 15px;
 }
 
 
@@ -81,7 +84,7 @@ a:hover, a:visited, a::selection {
 
 #btn {
   height: 30px;
-  width: 200px;
+  width: 250px;
   background-color: rgba(180, 173, 234, 1);
   color: rgba(253, 255, 247, 1);
   border-radius: 15px;
@@ -96,11 +99,10 @@ a:hover, a:visited, a::selection {
   transform: translate(5px, 0px);
 }
 
-.scan-and-info {
-  height: 100vh;
-}
 
-.more {
+
+
+#more {
   display: flex;
   position: absolute;
   bottom: 0px;

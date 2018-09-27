@@ -39,7 +39,7 @@
             <div>LGBT: <%= @company_lgbt %></div>
           <%end%>
         </div>
-        <div class="more animated pulse infinite">More &#9660;</div> 
+        <div id="more" class="animated pulse infinite">More &#9660;</div>
       </div>
 
         <div>
@@ -181,4 +181,10 @@
             startScanner();
           }
         }, false);
+      </script>
+
+      <script>
+      window.addEventListener("scroll", function(){
+        document.getElementById("more").innerHTML = "";
+      });
       </script>
