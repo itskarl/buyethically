@@ -1,11 +1,11 @@
 <main class="main-body">
 
   <div class="scan-and-info">
-    <!-- Div to show the scanner -->
 
+      <!-- Div to show the scanner -->
     <div id="scanner-container" ></div>
 
-    <input type="button" id="btn" value="START/STOP SCAN"/>
+    <input type="button" id="btn" value="START/STOP BARCODE READER"/>
     <br>
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
@@ -39,15 +39,17 @@
             <div>LGBT: <%= @company_lgbt %></div>
           <%end%>
         </div>
+        <div class="more animated pulse infinite">More &#9660;</div> 
+      </div>
 
         <div>
           <div class="news-section">
             <!-- NEWS! -->
             <% if @newsreq && @newsreq.first[1] == "ok" %>
               <% @newsarticles[0..5].each do |x| %>
-                <a href="<%= x['url']%>"><%= x['title']%></a>
-                (<%= x['source']['name']%>)<br>
-                Desc:<%= x['description']%><br>
+                <a href="<%= x['url']%>"><%= x['title']%></a><br>
+                <small>(<%= x['source']['name']%>)</small><br>
+                <%= x['description']%><br>
                 <br>
               <%end%>
             <% end %>
@@ -63,7 +65,8 @@
       Welcome to
     <% end %>
 
-      <div>
+  </div>
+
 </main>
 
       <!-- here be the quagga barcode reader magic! -->
