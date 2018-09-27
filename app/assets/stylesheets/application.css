@@ -63,7 +63,6 @@ a:hover, a:visited, a::selection {
     height: 100vh;
 }
 
-
 #scanner-container {
   display: flex;
   align-items: center;
@@ -76,7 +75,6 @@ a:hover, a:visited, a::selection {
   padding: 10px;
   border-radius: 15px;
 }
-
 
 .news-section {
   padding: 15px 0;
@@ -99,12 +97,20 @@ a:hover, a:visited, a::selection {
   transform: translate(5px, 0px);
 }
 
-
-
-
 #more {
   display: flex;
   position: absolute;
   bottom: 0px;
   padding: 10px;
+}
+
+.general-info {
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.general-info-right img {
+  width: 60px;
+  height: 60px;
 }
