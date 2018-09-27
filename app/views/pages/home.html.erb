@@ -15,57 +15,98 @@
     <b id="this_is_upc"></b>
 
     <% if @req %>
-
       <% if @req['status'] == 200 %>
-
       <div class="general-info">
+
         <div class="general-info-left">
-          <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
-          <% if @req['item']['matched_items'] != nil %>
-          Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
+
+          <% if @company_score %>
+
+           <% case @company_score %>
+           <% when 0..49 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(193, 58, 55)"> F </div>
+          </div>
+           <% when 50 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(140, 140, 140)"> ? </div>
+
+          </div>
+           <% when 51..64 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(228, 149, 57)"> D </div>
+
+          </div>
+           <% when 65..75 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(224, 222, 61)"> C </div>
+
+          </div>
+           <% when 76..85 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(121, 153, 63)"> B </div>
+
+         </div>
+           <% when 86..100 %>
+           <div class="letter-visuals">
+             <div class="letterscore" style="background-color: rgb(102, 171, 82)"> A </div>
+          </div>
+           <% end %>
           <% end %>
+          <p>OUR LETTER GRADE</p>
         </div>
+
+
         <div class="general-info-right">
-          Company Profile: <%= @matched_company if @matched_company %>
-          <br>
+          <h1> <%= @matched_company if @matched_company %> </h1>
           <% if @company_score %>
           Company Score: <%= @company_score %>
            <% case @company_score %>
            <% when 0..49 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(193, 58, 55)"> F </div>
+
             <img src="emoticons/score_F.png">
           </div>
            <% when 50 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(140, 140, 140)"> ? </div>
+
             <img src="emoticons/score_none.png">
           </div>
            <% when 51..64 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(228, 149, 57)"> D </div>
+
             <img src="emoticons/score_D.png">
           </div>
            <% when 65..75 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(224, 222, 61)"> C </div>
+
              <img src="emoticons/score_C.png">
           </div>
            <% when 76..85 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(121, 153, 63)"> B </div>
+
            <img src="emoticons/score_B.png">
          </div>
            <% when 86..100 %>
            <div class="score-visuals">
-             <div class="letterscore" style="background-color: rgb(102, 171, 82)"> A </div>
+
             <img src="emoticons/score_A.png">
           </div>
            <% end %>
           <% end %>
 
         </div>
+
+
       </div>
+
+        <br>
+        <div class="general-info-text">
+          <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
+          <% if @req['item']['matched_items'] %>
+          Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
+          <% end %>
+        </div>
 
         <div class="scores">
           <% if @company_csr %>

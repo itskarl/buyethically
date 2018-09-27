@@ -38,7 +38,6 @@ body {
 main {
   display: flex;
   width: 320px;
-
   flex-direction: column;
   color: rgba(80, 81, 79, 1);
 }
@@ -53,6 +52,11 @@ a:hover, a:visited, a::selection {
   color: rgba(182, 169, 70, 1);
 }
 
+h1, h2, h3, h4, h5, h5 {
+margin: 0;
+line-height: 1.1em;
+}
+
 .scan-and-info {
   display: flex;
   align-items: center;
@@ -60,7 +64,8 @@ a:hover, a:visited, a::selection {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-    height: 100vh;
+  height: 100vh;
+  width: 320px;
 }
 
 #scanner-container {
@@ -105,9 +110,24 @@ a:hover, a:visited, a::selection {
 }
 
 .general-info {
-  display: flex;
+  width: 320px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 15px 0;
+}
+
+.general-info-right {
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+}
+
+.general-info-left {
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .general-info-right img {
@@ -117,19 +137,23 @@ a:hover, a:visited, a::selection {
 }
 
 .score-visuals {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.letter-visuals {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.score-visuals div {
- font-size: 40px;
+.letter-visuals div {
+ font-size: 70px;
  background-color: pink;
  border-radius: 50%;
- width: 60px;
- height: 60px;
+ width: 120px;
+ height: 120px;
  display: flex;
  align-items: center;
  justify-content: center;
