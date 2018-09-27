@@ -13,15 +13,14 @@
         /* In order to place the tracking correctly */
         canvas.drawing, canvas.drawingBuffer {
             position: absolute;
-            left: 0;
-            top: 0;
+            left: calc(50% - 160px);
+            top: 20px;
         }
     </style>
 
   </head>
 
   <body>
-    test
     <%= yield %>
   </body>
 </html>

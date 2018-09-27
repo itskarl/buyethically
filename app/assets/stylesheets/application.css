@@ -20,6 +20,7 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
 main {
   display: flex;
   width: 320px;
