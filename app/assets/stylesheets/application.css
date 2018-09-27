@@ -137,4 +137,5 @@ a:hover, a:visited, a::selection {
  padding: 10px;
  box-sizing: border-box;
  font-family: 'Fredoka One', cursive;
+ color: white;
 }
