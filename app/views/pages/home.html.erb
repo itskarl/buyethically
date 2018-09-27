@@ -25,6 +25,21 @@
         <br>
         Company Score: <%= @company_score if @company_score %>
 
+        <div class="scores">
+          <% if @company_csr %>
+            CSR: <%= @company_csr %>
+          <%end%>
+          <% if @company_csr %>
+            Environment: <%= @company_environment %>
+          <%end%>
+          <% if @company_csr %>
+            Political Score: <%= @company_politics %>
+          <%end%>
+          <% if @company_csr %>
+            LGBT: <%= @company_lgbt %>
+          <%end%>
+        </div>
+
         <div>
           <div class="news-section">
             <!-- NEWS! -->
@@ -38,10 +53,14 @@
             <% end %>
             <!-- NEWS! -->
 
-      <% else %>
+            <% else %>
             Error: <%= @req['message'] %>
       <% end %>
 
+
+
+    <% else %>
+      Welcome to
     <% end %>
 
       <div>
