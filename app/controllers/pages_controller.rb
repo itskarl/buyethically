@@ -15,7 +15,7 @@ class PagesController < ApplicationController
       @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/companyrating/companyratings")
       @req2 = JSON.parse(@data2.body_str)
 
-      if @req['item']['company_name']
+      if @req['item']
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "")
       end
 
@@ -26,7 +26,7 @@ class PagesController < ApplicationController
       end
 
       #creating an abbreviation from the company name to parse through the API
-      if @thecompany[0..3].chars.count == 4
+      if @thecompany && @thecompany[0..3].chars.count == 4
         @company_abbrev = @thecompany[0..3].downcase
         @found_company = @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)} if @req2.find {|x| x['company'].downcase.match(/#{@company_abbrev}/)}
         @matched_company = @found_company['company'] if @found_company
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
         @company_score = @found_company['score']
 
         #newsAPI here!
-        @newssearchterm = URI.encode(@matched_company)
+        @newssearchterm = URI.encode(@matched_company.gsub(/[!@%&"-]/,' '))
         @daterange = (Time.now - 28.days).strftime("%C%y-%m-%d")
 
         @newsdata = Curl::Easy.perform("https://newsapi.org/v2/everything?q=#{@newssearchterm}%20company&from=#{@daterange}&sortBy=popularity&apiKey=bcd7a32090a74b88b8730f2c5540a792")
@@ -58,8 +58,8 @@ class PagesController < ApplicationController
 
     end
 
-    # rescue StandardError
-    # rescue Exception
+    rescue StandardError
+    rescue Exception
   end
 
   def about

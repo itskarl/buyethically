@@ -26,6 +26,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: tomato;
 }
 
 .scan-and-info {
@@ -36,6 +37,14 @@ main {
 }
 
 #scanner-container {
-  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+}
+
+#scanner-container video {
+  width: 300px;
+
+  padding: 10px;
 }

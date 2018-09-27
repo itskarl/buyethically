@@ -2,8 +2,8 @@
 
   <div class="scan-and-info">
     <!-- Div to show the scanner -->
-  
-    <div id="scanner-container"></div>
+
+    <div id="scanner-container" ></div>
 
     <input type="button" id="btn" value="START/STOP SCAN"/>
     <br>
@@ -16,34 +16,33 @@
 
     <% if @req %>
 
-    <% if @req['status'] == 200 %>
-      Company: <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
-      <% if @req['item']['matched_items'] != nil   %>
-      Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
-      <% end %>
-      Company Profile: <%= @matched_company if @matched_company %>
-      <br>
-      Company Score: <%= @company_score if @company_score %>
-
-      <div>
-        <div class="news-section">
-          <!-- NEWS! -->
-          <% if @newsreq && @newsreq.first[1] == "ok" %>
-            <% @newsarticles[0..5].each do |x| %>
-              <a href="<%= x['url']%>"><%= x['title']%></a>
-              (<%= x['source']['name']%>)<br>
-              Desc:<%= x['description']%><br>
-              <br>
-            <%end%>
-          <% end %>
-          <!-- NEWS! -->
-
-        <% else %>
-          Error:
-          <%= @req['message'] %>
+      <% if @req['status'] == 200 %>
+        Company: <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
+        <% if @req['item']['matched_items'] != nil   %>
+        Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
         <% end %>
+        Company Profile: <%= @matched_company if @matched_company %>
+        <br>
+        Company Score: <%= @company_score if @company_score %>
 
+        <div>
+          <div class="news-section">
+            <!-- NEWS! -->
+            <% if @newsreq && @newsreq.first[1] == "ok" %>
+              <% @newsarticles[0..5].each do |x| %>
+                <a href="<%= x['url']%>"><%= x['title']%></a>
+                (<%= x['source']['name']%>)<br>
+                Desc:<%= x['description']%><br>
+                <br>
+              <%end%>
+            <% end %>
+            <!-- NEWS! -->
+
+      <% else %>
+            Error: <%= @req['message'] %>
       <% end %>
+
+    <% end %>
 
       <div>
 </main>
@@ -60,8 +59,8 @@
               type: "LiveStream",
               target: document.querySelector('#scanner-container'),
               constraints: {
-                width: 480,
-                height: 320,
+                width: 320,
+                height: 300,
                 facingMode: "environment"
               }
             },
@@ -113,8 +112,8 @@
                     x: 0,
                     y: 1
                   }, drawingCtx, {
-                    color: "green",
-                    lineWidth: 2
+                    color: "blue",
+                    lineWidth: 1
                   });
                 });
               }
@@ -125,13 +124,13 @@
                   y: 1
                 }, drawingCtx, {
                   color: "#00F",
-                  lineWidth: 2
+                  lineWidth: 1
                 });
               }
 
               if (result.codeResult && result.codeResult.code) {
                 Quagga.ImageDebug.drawPath(result.line, {
-                  x: 'x',
+                  x: '50',
                   y: 'y'
                 }, drawingCtx, {
                   color: 'red',
