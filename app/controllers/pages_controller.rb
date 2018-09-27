@@ -4,8 +4,8 @@ class PagesController < ApplicationController
     #the search begins here!!
     if params[:upc_input]
       searched = params[:upc_input]
-      # @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{searched}")
-      @data = Curl::Easy.perform("https://raw.githubusercontent.com/itskarl/jsonfiles/master/buyer?token=AmseyX-qnkfFcszX4a3RDLxElYMoU-90ks5btmT9wA%3D%3D")
+      @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{searched}")
+      # @data = Curl::Easy.perform("https://raw.githubusercontent.com/itskarl/jsonfiles/master/buyer?token=AmseyX-qnkfFcszX4a3RDLxElYMoU-90ks5btmT9wA%3D%3D")
       @req = JSON.parse(@data.body_str)
 
       # require 'open-uri'
