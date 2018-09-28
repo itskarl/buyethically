@@ -38,7 +38,7 @@ main {
   width: 320px;
   flex-direction: column;
   color: rgba(80, 81, 79, 1);
-  background-color: rgba(214, 157, 144, 0.14)
+  /* background-color: rgba(214, 157, 144, 0.14) */
 }
 
 a {
