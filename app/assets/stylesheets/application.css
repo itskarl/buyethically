@@ -87,7 +87,7 @@ line-height: 1.1em;
 }
 
 .news-section {
-  padding: 15px 0;
+  padding: 15px;
 }
 
 #btn {
@@ -242,7 +242,7 @@ cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10vh 0;
+  padding: 10vh 15px;
   text-align: justify;
 }
 
