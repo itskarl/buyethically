@@ -185,12 +185,15 @@ line-height: 1.1em;
 .political-bar {
   width: 220px;
   height: 20px;
-  background-color: tomato;
+  background-color: rgb(95, 151, 245);
   overflow: hidden;
-    box-shadow: 2px 2px 2px grey;
+  box-shadow: 2px 2px 2px grey;
+  display: flex;
+  justify-content: flex-end;
+
 }
 
 .political-fill {
   height: 20px;
-  background-color: rgb(95, 151, 245);
+  background-color: tomato;
 }
