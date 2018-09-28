@@ -58,7 +58,7 @@
         </div>
 
         <div class="general-info-right">
-          <h1> <%= @matched_company if @matched_company %> </h1>
+          <h1> <%= @matched_company.upcase if @matched_company %> </h1>
           <% if @company_score %>
           Company Score: <%= @company_score %>
            <% case @company_score %>
