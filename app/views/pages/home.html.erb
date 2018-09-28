@@ -105,9 +105,9 @@
         <div class="scores">
 
           <div class="general-info-text">
-            <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
+            <h3><%= @req['item']['company_name'].upcase if @req['item']['company_name'] %></h3>
             <% if @req['item']['matched_items'] && @req['item']['matched_items'][0]  %>
-            MANUFACTURER: <%= @req['item']['matched_items'][0]['manufacturer'] %><br>
+            Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] %><br><br>
             <% end %>
 
             <% if @req['item'].empty? || @req['item']['matched_items'].empty?  %>
@@ -126,13 +126,31 @@
             <% end %>
 
           </div>
-
+          <br>
           <% if @company_csr %>
-            <div>CSR: <%= @company_csr %></div>
+            <div class="csr">
+              <h4>CORPORATE SOCIAL RESPONSIBILITY</h4>
+              <div class="csr-bar">
+                <div class="csr-fill" style="width: <%= @company_csr %>%">
+                  <%= @company_csr %>/100
+                </div>
+              </div>
+            </div>
           <%end%>
+
+
           <% if @company_environment %>
-            <div>Environment: <%= @company_environment %></div>
+            <div class="environment">
+              <h4>ENVIRONMENTAL CONCIENTIOUSNESS</h4>
+              <div class="environment-bar">
+                <div class="environment-fill" style="width: <%= (@company_environment.to_f/5)*100 %>%">
+                  <%= (@company_environment.to_f/5)*100 %>
+                </div>
+              </div>
+            </div>
           <%end%>
+
+
           <% if @company_politics %>
           <div class="political-box">
 
