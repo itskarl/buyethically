@@ -59,6 +59,16 @@ margin: 0;
 line-height: 1.1em;
 }
 
+
+ul {
+
+  margin: 0;
+padding: 0;
+  color: rgba(105, 95, 179, 1);
+  text-align: left;
+}
+
+
 .scan-and-info {
   display: flex;
   align-items: center;
@@ -197,6 +207,7 @@ cursor: pointer;
   position: absolute;
   bottom: 0px;
   padding: 10px;
+  text-shadow: 0 0 8px white;
 }
 
 .general-info {
@@ -212,6 +223,10 @@ cursor: pointer;
   display: flex;
   text-align: right;
   flex-direction: column;
+}
+
+.general-info-right h1 {
+  color: rgba(51, 44, 105, 1);
 }
 
 .general-info-left {

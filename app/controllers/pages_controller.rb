@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       # @doc = Nokogiri::HTML(open("https://www.barcodable.com/upc/043695071238"))
 
       # this is my own API, uploaded to buddyweb server where we find company info
-      @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/companyrating/companyratings")
+      @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/companyrating/main")
       @req2 = JSON.parse(@data2.body_str)
 
       if @req['item'] && @req['item']['company_name']
@@ -39,7 +39,6 @@ class PagesController < ApplicationController
         @matched_company = @found_company['company'] if @found_company
       end
 
-
       if @found_company && @matched_company
         @company_score = @found_company['score']
         @company_csr = @found_company['csr']
@@ -48,6 +47,7 @@ class PagesController < ApplicationController
         @company_politics  = @found_company['political']
 
         @company_lgbt = @found_company['lgbt']
+        @company_details = @found_company['politicsdetails'].split(',')
 
         #newsAPI here!
         @newssearchterm = URI.encode(@matched_company.gsub(/[!@%&"-]/,' '))

@@ -174,12 +174,23 @@
               <% elsif @company_politics > 3 %>
                 MORE CONSERVATIVE THAN LIBERAL
               <% end %>
+              <ul>
+                <li>
+                  <% if @company_lgbt && @company_lgbt > 90 %>
+                    Supports LGBT Rights
+                  <% end %>
+                </li>
+              <% if @company_details %>
+                <% @company_details.each do |x| %>
+                <li> <%= x %></li>
+                <% end %>
+              <% end %>
+              </ul>
+
             </div>
           </div>
           <%end%>
-          <% if @company_lgbt %>
-            <!-- <div>LGBT: <%= @company_lgbt %></div> -->
-          <%end%>
+
         </div>
 
 
