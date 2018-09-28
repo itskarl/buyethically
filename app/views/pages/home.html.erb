@@ -1,4 +1,5 @@
-<main class="main-body">
+  <center>
+  <main class="main-body">
 
   <div class="scan-and-info">
 
@@ -8,7 +9,8 @@
     <input type="button" id="btn" value="START/STOP BARCODE READER"/>
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
-      <h2></h2> &nbsp;<%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %><%= submit_tag "SEARCH" %>
+    <%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %>
+    <%= submit_tag "SEARCH" %>
     <% end %>
 
     <b id="this_is_upc"></b>
@@ -51,7 +53,7 @@
              <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(102, 171, 82) 30%, transparent)"> A </div>
           </div>
            <% end %>
-           <h4 style="padding-top: 6px">OUR LETTER GRADE</h4>
+           <h4 style="padding: 6px 0 0 5%">OUR LETTER GRADE</h4>
           <% end %>
 
         </div>
@@ -179,6 +181,8 @@
             <!-- <div>LGBT: <%= @company_lgbt %></div> -->
           <%end%>
         </div>
+
+
         <% if @newsreq && @newsreq.first[1] == "ok" %>
         <div id="more" class="animated flash infinite">More &#9660;</div>
         <% end %>
@@ -207,8 +211,11 @@
 
     <% else %>
     <div class="welcome">
-
-      <p>Greetings! <br>Welcome to your tool to buying more ethically! To begin, simply start the barcode scanner above, or type in a product UPC number.</p>
+      <div class="welcomeleft">
+        <h2 class="barcode">CONCON</h2>
+        <p>GREETINGS!</p>
+        <p>Welcome to your tool to buying more conscientiously! To begin, simply start the barcode scanner above, or type in a product UPC number.</p>
+    </div class="welcomeright">
       <img src="emoticons/009-hello.png">
     </div>
     <% end %>
@@ -216,6 +223,8 @@
   </div>
 
 </main>
+</center>
+
 
       <!-- here be the quagga barcode reader magic! -->
 
