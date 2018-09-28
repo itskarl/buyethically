@@ -122,8 +122,9 @@
           <div class="political-box">
 
             <div class="political-bar">
-              <div class="political-fill" style="width: <%= ((6-@company_politics)/6)*100 %>%">
-              <%= @company_politics %></div>
+              <div class="political-fill" style="width: <%= ((6-(@company_politics))/6)*100 %>%">
+              ee<%= @company_politics %>ee
+            </div>
             </div>
 
             <div class="political-icons">
@@ -134,7 +135,7 @@
               <% if @company_politics < 3 %>
                 MORE LIBERAL THAN CONSERVATIVE
               <% elsif @company_politics == 3 %>
-
+                UNKNOWN POLITICAL STANCE
               <% elsif @company_politics > 3 %>
                 MORE CONSERVATIVE THAN LIBERAL
               <% end %>
