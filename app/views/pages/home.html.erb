@@ -25,37 +25,37 @@
            <% case @company_score %>
            <% when 0..49 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(193, 58, 55)"> F </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(193, 58, 55) 30%, transparent)"> F </div>
           </div>
            <% when 50 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(140, 140, 140)"> ? </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(140, 140, 140) 30%, transparent)"> ? </div>
 
           </div>
            <% when 51..64 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(228, 149, 57)"> D </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(228, 149, 57) 30%, transparent)"> D </div>
 
           </div>
            <% when 65..75 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(224, 222, 61)"> C </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(224, 222, 61) 30%, transparent)"> C </div>
 
           </div>
            <% when 76..85 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(121, 153, 63)"> B </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(121, 153, 63) 30%, transparent)"> B </div>
 
          </div>
            <% when 86..100 %>
            <div class="letter-visuals">
-             <div class="letterscore" style="background-color: rgb(102, 171, 82)"> A </div>
+             <div class="letterscore" style="background: linear-gradient(0.25turn, rgb(102, 171, 82) 30%, transparent)"> A </div>
           </div>
            <% end %>
+           <h3 style="padding-top: 6px">OUR LETTER GRADE</h3>
           <% end %>
-          <p>OUR LETTER GRADE</p>
-        </div>
 
+        </div>
 
         <div class="general-info-right">
           <h1> <%= @matched_company if @matched_company %> </h1>
@@ -101,14 +101,17 @@
       </div>
 
         <br>
-        <div class="general-info-text">
-          <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
-          <% if @req['item']['matched_items'] %>
-          Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
-          <% end %>
-        </div>
+
 
         <div class="scores">
+
+          <div class="general-info-text">
+            <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
+            <% if @req['item']['matched_items'] %>
+            Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
+            <% end %>
+          </div>
+          
           <% if @company_csr %>
             <div>CSR: <%= @company_csr %></div>
           <%end%>
@@ -116,19 +119,41 @@
             <div>Environment: <%= @company_environment %></div>
           <%end%>
           <% if @company_politics %>
-            <div>Political Score: <%= @company_politics %></div>
+          <div class="political-box">
+
+            <div class="political-bar">
+              <div class="political-fill" style="width: <%= ((6-@company_politics)/6)*100 %>%">
+              </div>
+            </div>
+
+            <div class="political-icons">
+              <img src="democratic.png">
+              <img src="republican.png">
+            </div>
+            <div>
+              <% if @company_politics < 3 %>
+                MORE LIBERAL THAN CONSERVATIVE
+              <% elsif @company_politics == 3 %>
+
+              <% elsif @company_politics > 3 %>
+                MORE CONSERVATIVE THAN LIBERAL
+              <% end %>
+            </div>
+          </div>
           <%end%>
           <% if @company_lgbt %>
             <div>LGBT: <%= @company_lgbt %></div>
           <%end%>
         </div>
-        <div id="more" class="animated pulse infinite">More &#9660;</div>
+        <div id="more" class="animated wobble infinite">More &#9660;</div>
       </div>
 
         <div>
           <div class="news-section">
             <!-- NEWS! -->
             <% if @newsreq && @newsreq.first[1] == "ok" %>
+            <hr>
+              <h3>RECENT NEWS ON <%= @matched_company.upcase %></h3><br>
               <% @newsarticles[0..4].each do |x| %>
                 <a href="<%= x['url']%>"><%= x['title']%></a><br>
                 <small>(<%= x['source']['name']%>)</small><br>
