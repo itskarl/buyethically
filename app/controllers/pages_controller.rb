@@ -4,8 +4,8 @@ class PagesController < ApplicationController
     #the search begins here!!
     if params[:upc_input]
       searched = params[:upc_input]
-      @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{searched}")
-      # @data = Curl::Easy.perform("https://raw.githubusercontent.com/itskarl/jsonfiles/master/buyer?token=AmseyX-qnkfFcszX4a3RDLxElYMoU-90ks5btmT9wA%3D%3D")
+      # @data = Curl::Easy.perform("https://api.barcodable.com/api/v1/upc/#{searched}")
+      @data = Curl::Easy.perform("https://raw.githubusercontent.com/itskarl/jsonfiles/master/buyer?token=AmseyX-qnkfFcszX4a3RDLxElYMoU-90ks5btmT9wA%3D%3D")
       @req = JSON.parse(@data.body_str)
 
       # require 'open-uri'
@@ -15,7 +15,7 @@ class PagesController < ApplicationController
       @data2 = Curl::Easy.perform("https://bridge.buddyweb.fr/api/companyrating/companyratings")
       @req2 = JSON.parse(@data2.body_str)
 
-      if @req['item']
+      if @req['item'] && @req['item']['company_name']
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "")
       end
 
@@ -64,8 +64,8 @@ class PagesController < ApplicationController
 
     end
 
-    rescue StandardError
-    rescue Exception
+    # rescue StandardError
+    # rescue Exception
   end
 
   def about

@@ -6,10 +6,9 @@
     <div id="scanner-container" ></div>
 
     <input type="button" id="btn" value="START/STOP BARCODE READER"/>
-    <br>
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
-      UPC NUMBER: <%= text_field_tag :upc_input %><br>
+      <h2></h2> &nbsp;<%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %><%= submit_tag "SEARCH" %>
     <% end %>
 
     <b id="this_is_upc"></b>
@@ -107,9 +106,25 @@
 
           <div class="general-info-text">
             <%= @req['item']['company_name'] if @req['item']['company_name'] %><br>
-            <% if @req['item']['matched_items'] %>
-            Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] if @req['item']['matched_items'][0] %><br>
+            <% if @req['item']['matched_items'] && @req['item']['matched_items'][0]  %>
+            MANUFACTURER: <%= @req['item']['matched_items'][0]['manufacturer'] %><br>
             <% end %>
+
+            <% if @req['item'].empty? || @req['item']['matched_items'].empty?  %>
+
+              <div class ="sorry">
+                <div>
+                  <img src="emoticons/013-worker.png" style="width: 60px; padding: 0 20px 0 0">
+                </div>
+                <div>
+                  <h2>SORRY! </h2>
+                  <p>We don't have enough info on this company. This may be a small/local business or simply not have publically available records.</p>
+                </div>
+              </div>
+
+
+            <% end %>
+
           </div>
 
           <% if @company_csr %>
@@ -146,7 +161,9 @@
             <div>LGBT: <%= @company_lgbt %></div>
           <%end%>
         </div>
+        <% if @newsreq && @newsreq.first[1] == "ok" %>
         <div id="more" class="animated flash infinite">More &#9660;</div>
+        <% end %>
       </div>
 
         <div>
