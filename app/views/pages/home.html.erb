@@ -146,7 +146,7 @@
               <h4>ENVIRONMENTAL CONCIENTIOUSNESS</h4>
               <div class="environment-bar">
                 <div class="environment-fill" style="width: <%= (@company_environment.to_f/5)*100 %>%">
-                  <%= (@company_environment.to_f/5)*100 %>
+                  <%= ((@company_environment.to_f/5)*100).to_i %>/100
                 </div>
               </div>
             </div>
@@ -214,7 +214,8 @@
       <div class="welcomeleft">
         <h2 class="barcode">CONCON</h2>
         <p>GREETINGS!</p>
-        <p>Welcome to your tool to buying more conscientiously! To begin, simply start the barcode scanner above, or type in a product UPC number.</p>
+        <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC number.
+        </p>
     </div class="welcomeright">
       <img src="emoticons/009-hello.png">
     </div>
