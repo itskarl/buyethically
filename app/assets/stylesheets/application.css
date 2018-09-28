@@ -25,6 +25,7 @@
 :root {
   font-family: 'KoHo', sans-serif;
 }
+
 body {
   background: linear-gradient(0.35turn, rgba(253, 255, 247, 1), rgba(255, 237, 101, .5));
   font-size: 14px;
@@ -62,6 +63,7 @@ line-height: 1.1em;
 
 ul {
 
+  list-style-position: inside;
   margin: 0;
 padding: 0;
   color: rgba(58, 53, 102, 1);
@@ -119,7 +121,7 @@ padding: 0;
 
 /* Style the active link (or home/logo) */
 .activenav {
-  background-color: #b2cbac;
+  background-color: #98c48e;
   color: white;
 
 }
@@ -326,6 +328,8 @@ cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: left;
+  padding: 20px;
 }
 
 .scores {

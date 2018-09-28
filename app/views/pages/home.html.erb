@@ -112,15 +112,15 @@
             Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] %><br><br>
             <% end %>
 
-            <% if @req['item'].empty? || @req['item']['matched_items'].empty?  %>
+            <% if @found_company == nil && @matched_company == nil %>
 
               <div class ="sorry">
                 <div>
-                  <img src="emoticons/013-worker.png" style="width: 60px; padding: 0 20px 0 0">
+                  <img src="emoticons/013-worker.png" style="width: 120px; padding: 0 20px 0 0">
                 </div>
                 <div>
-                  <h2>SORRY! </h2>
-                  <p>We don't have enough info on this company. This may be a small/local business or simply not have publically available records.</p>
+                  <p>SORRY!<br>
+                  We don't have enough info on this company. This may be a small/local business or simply not have publically available records.</p>
                 </div>
               </div>
 
