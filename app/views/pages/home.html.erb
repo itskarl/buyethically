@@ -235,11 +235,11 @@
 
                               <% else %>
                                 <div class="landing">
-                                  <h2 class="barcode">CONCON</h2>
+                                  <h2 class="barcode" id="btnTwo">CONCON</h2>
                                   <div class="welcome">
                                     <div class="welcomeleft">
                                       <p>GREETINGS!</p>
-                                      <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC (barcode) number.
+                                      <p>Welcome to your <b style="color: rgb(17, 69, 61)">cons</b>cientious <b style="color: rgb(17, 69, 61)">cons</b>sumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC (barcode) number.
                                       </p>
                                     </div>
                                     <div class="welcomeright">
@@ -364,6 +364,15 @@
                                 startScanner();
                               }
                             }, false);
+
+                            document.getElementById("btnTwo").addEventListener("click", function () {
+                              if (_scannerIsRunning) {
+                                Quagga.stop();
+                              } else {
+                                startScanner();
+                              }
+                            }, false);
+
                           </script>
 
                           <script>

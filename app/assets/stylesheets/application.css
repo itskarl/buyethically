@@ -306,6 +306,7 @@ ul {
   font-weight: 400;
   color: black;
   padding: 20px;
+  cursor: pointer;
 }
 
 .welcome {
