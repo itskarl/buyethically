@@ -69,6 +69,14 @@ ul {
   text-align: left;
 }
 
+hr {
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(42, 124, 133);
+  border: 0 none;
+}
+
 .scan-and-info {
   display: flex;
   align-items: center;
@@ -145,7 +153,9 @@ ul {
   background-color: #51afdc;
   color: rgba(253, 255, 247, 1);
   font-size: 16px;
-  border: none;
+  border-style: solid;
+  border-width: 2px 0;
+  border-color: white;
   position: relative;
 }
 
@@ -344,7 +354,7 @@ ul {
 .csr-bar {
   width: 300px;
   height: 25px;
-  background-color: rgba(200, 223, 224, 0.87);
+  background-color: rgba(145, 223, 224, 0.87);
   overflow: hidden;
   box-shadow: 2px 2px 2px grey;
   display: flex;
