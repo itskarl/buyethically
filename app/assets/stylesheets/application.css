@@ -86,7 +86,7 @@ ul {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
   position: relative;
-  height: 40px
+
 }
 
 .topnav #myLinks {
@@ -115,8 +115,6 @@ ul {
   background-color: rgba(237, 244, 255, 0.81);
   color: rgba(80, 81, 79, 0.59);
 }
-
-/* Style the active link (or home/logo) */
 
 .activenav {
   background-color: #40bab3;
