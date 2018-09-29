@@ -175,11 +175,11 @@
                 MORE CONSERVATIVE THAN LIBERAL
               <% end %>
               <ul>
-                <li>
+
                   <% if @company_lgbt && @company_lgbt > 90 %>
-                    Supports LGBT Rights
+                    <li>Supports LGBT Rights & Marriage Equality </li>
                   <% end %>
-                </li>
+
               <% if @company_details %>
                 <% @company_details.each do |x| %>
                 <li> <%= x %></li>
