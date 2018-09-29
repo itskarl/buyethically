@@ -47,7 +47,7 @@ class PagesController < ApplicationController
         @company_politics  = @found_company['political']
 
         @company_lgbt = @found_company['lgbt']
-        @company_details = @found_company['politicsdetails'].split(',')
+        @company_details = @found_company['politicsdetails'].split(',') if @found_company['politicsdetails']
 
         #newsAPI here!
         @newssearchterm = URI.encode(@matched_company.gsub(/[!@%&"-]/,' '))
@@ -64,8 +64,8 @@ class PagesController < ApplicationController
 
     end
 
-    rescue StandardError
-    rescue Exception
+    # rescue StandardError
+    # rescue Exception
   end
 
   def about

@@ -5,8 +5,8 @@
 
       <!-- Div to show the scanner -->
     <div id="scanner-container" ></div>
-    
-    <input type="button" id="btn" value="START SCANNING!"/>
+
+    <input type="button" id="btn" value="START BARCODE SCANNER!"/>
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
     <%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %>
@@ -108,10 +108,10 @@
 
           <div class="general-info-text">
             <h3><%= @req['item']['company_name'].upcase if @req['item']['company_name'] %></h3>
-            <% if @req['item']['matched_items'] && @req['item']['matched_items'][0]  %>
-            Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] %><br><br>
+            <% if @req['item']['matched_items'] && @req['item']['matched_items'][0] && @req['item']['matched_items'][0]['manufacturer']  %>
+            Manufacturer: <%= @req['item']['matched_items'][0]['manufacturer'] %>
             <% end %>
-
+<br><br>
             <% if @found_company == nil && @matched_company == nil %>
 
               <div class ="sorry">
@@ -158,8 +158,7 @@
 
             <div class="political-bar">
               <div class="political-fill" style="width: <%= (@company_politics.to_f/6)*100 %>%">
-
-            </div>
+              </div>
             </div>
 
             <div class="political-icons">
@@ -168,18 +167,16 @@
             </div>
             <div>
               <% if @company_politics < 3 %>
-                MORE LIBERAL THAN CONSERVATIVE
+                <h4>MORE LIBERAL THAN CONSERVATIVE</h4>
               <% elsif @company_politics == 3 %>
-                UNKNOWN POLITICAL STANCE
+                <h4>MIXED POLITICAL STANCE</h4>
               <% elsif @company_politics > 3 %>
-                MORE CONSERVATIVE THAN LIBERAL
+                <h4>MORE CONSERVATIVE THAN LIBERAL</h4>
               <% end %>
               <ul>
-
                   <% if @company_lgbt && @company_lgbt > 90 %>
                     <li>Supports LGBT Rights & Marriage Equality </li>
                   <% end %>
-
               <% if @company_details %>
                 <% @company_details.each do |x| %>
                 <li> <%= x %></li>
@@ -199,7 +196,7 @@
         <% end %>
       </div>
 
-        <div>
+
           <div class="news-section">
             <!-- NEWS! -->
             <% if @newsreq && @newsreq.first[1] == "ok" %>
@@ -212,29 +209,30 @@
                 <br>
               <%end%>
             <% end %>
+          </div>
+
             <!-- NEWS! -->
 
             <% else %>
             Error: <%= @req['message'] %>
       <% end %>
 
-
-
     <% else %>
     <div class="landing">
-    <h2 class="barcode">CONCON</h2>
-    <div class="welcome">
-      <div class="welcomeleft">
-        <p>GREETINGS!</p>
-        <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC (barcode) number.
-        </p>
-    </div class="welcomeright">
-      <img src="emoticons/009-hello.png">
+      <h2 class="barcode">CONCON</h2>
+      <div class="welcome">
+        <div class="welcomeleft">
+          <p>GREETINGS!</p>
+          <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC (barcode) number.
+          </p>
+        </div>
+        <div class="welcomeright">
+          <img src="emoticons/009-hello.png">
+        </div>
+      </div>
+      <% end %>
     </div>
-  </div>
-    <% end %>
 
-  </div>
 
 </main>
 </center>
