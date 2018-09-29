@@ -76,7 +76,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: calc(100vh - 130px);
+  min-height: calc(100vh - 40px);
   max-width: 640px;
 }
 
@@ -296,7 +296,7 @@ ul {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 40px);
   padding: 10px;
 }
 
