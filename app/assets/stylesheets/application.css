@@ -78,7 +78,7 @@ padding: 0;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   max-width: 640px;
 }
 
@@ -88,7 +88,6 @@ padding: 0;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
   position: relative;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.39);
 }
 
 .topnav #myLinks {
@@ -100,11 +99,10 @@ padding: 0;
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
   display: block;
 }
 
-/* Style the hamburger menu */
 .topnav a.icon {
   background: rgba(80, 81, 79, 0.59);
   display: block;
@@ -113,7 +111,6 @@ padding: 0;
   top: 0;
 }
 
-/* Add a grey background color on mouse-over */
 .topnav a:hover {
   background-color: rgba(237, 244, 255, 0.81);
   color: rgba(80, 81, 79, 0.59);
@@ -121,7 +118,7 @@ padding: 0;
 
 /* Style the active link (or home/logo) */
 .activenav {
-  background-color: #98c48e;
+  background-color: #40bab3;
   color: white;
 
 }
@@ -129,12 +126,7 @@ padding: 0;
 
 /* NAVBAR */
 
-.barcode {
-  font-family: 'Libre Barcode 39 Text', cursive;
-  font-size: 50px;
-  font-weight: 400;
-  color: black;
-}
+
 
 #scanner-container {
   display: flex;
@@ -159,10 +151,9 @@ padding: 0;
   width: 100%;
   background-color: #51afdc;
   color: rgba(253, 255, 247, 1);
-
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.45); */
+  font-size: 16px;
   border: none;
-  margin: 10px;
+  position: relative;
 }
 
 #btn:hover, #btn::selection {
@@ -185,22 +176,24 @@ padding: 0;
   color: rgba(253, 255, 247, 1);
   border-style: solid;
   border-width: 1px;
-  border-color: #51afdc;
-  background-color: rgba(80, 171, 200, 0.2);
+  border-color: #f3c74f;
+  background-color: rgba(244, 199, 79, 0.53);
   padding: 0 0 0 20px;
+
 }
 
 .scan-and-info input[type=submit] {
   height: 40px;
   width: 25%;
-  background-color: #51afdc;
+  background-color: #f3c74f;
   color: rgba(253, 255, 247, 1);
   border: none;
+  font-size: 16px;
+
 }
 
-
 .scan-and-info input[type=submit]:hover {
-background-color: #006296;
+background-color: #c8a64a;
 cursor: pointer;
 }
 
@@ -305,19 +298,33 @@ cursor: pointer;
   background-color: tomato;
 }
 
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  padding: 10px;
+}
+
+.barcode {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  font-size: 100px;
+  font-weight: 400;
+  color: black;
+  padding: 20px;
+}
+
 .welcome {
   display: flex;
   justify-content: center;
-  padding: 10vh 15px;
   text-align: right;
   max-width: 500px;
 }
 
 .welcomeleft{
-  padding: 0 18px 0 0;
+  padding: 0 15px 0 0;
 }
-
-
 
 .welcome img {
   width: 190px;

@@ -6,7 +6,7 @@
       <!-- Div to show the scanner -->
     <div id="scanner-container" ></div>
 
-    <input type="button" id="btn" value="START/STOP BARCODE READER"/>
+    <input type="button" id="btn" value="START SCANNING!"/>
 
     <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
     <%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %>
@@ -221,15 +221,17 @@
 
 
     <% else %>
+    <div class="landing">
+    <h2 class="barcode">CONCON</h2>
     <div class="welcome">
       <div class="welcomeleft">
-        <h2 class="barcode">CONCON</h2>
         <p>GREETINGS!</p>
-        <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC number.
+        <p>Welcome to your CONscientious CONsumer tool, designed to help you buy more ethically! To begin, simply start the barcode scanner above, or type in a product UPC (barcode) number.
         </p>
     </div class="welcomeright">
       <img src="emoticons/009-hello.png">
     </div>
+  </div>
     <% end %>
 
   </div>
