@@ -64,8 +64,8 @@ class PagesController < ApplicationController
 
     end
 
-    # rescue StandardError
-    # rescue Exception
+    rescue StandardError
+    rescue Exception
   end
 
   def about
