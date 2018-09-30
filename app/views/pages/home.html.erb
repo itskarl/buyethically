@@ -1,4 +1,8 @@
+
+  <img class="found display-none" id="found" src="/emoticons/041-detective.png">
+
 <center>
+
   <main class="main-body">
 
     <div class="scan-and-info">
@@ -357,6 +361,7 @@
                                 document.getElementById('upc_input').value = result.codeResult.code;
                                 document.getElementById('this_is_upc').innerHTML = result.codeResult.code;
                                 document.forms["acquire_upc"].submit();
+                                document.getElementById('found').classList.remove('display-none');
                                 Quagga.stop();
 
                               });
