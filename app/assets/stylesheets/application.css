@@ -320,6 +320,10 @@ hr {
   padding: 10px;
 }
 
+.landing h3 {
+  padding-bottom: 20px;
+}
+
 .barcode {
   font-family: 'Libre Barcode 39 Text', cursive;
   font-size: 100px;
