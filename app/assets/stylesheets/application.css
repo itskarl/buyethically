@@ -444,12 +444,12 @@ hr {
 .more-details1 p {
     padding: 4px 15px;
     width: 170px;
-    margin: -8px 5px 0 0;
+    margin: -7px 5px 0 0;
     color: white;
     background-color: rgb(66, 107, 56);
     border-radius: 0 0 15px 15px;
     font-size: 12px;
-      box-shadow: 2px 2px 2px grey;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .more-details2 p {
@@ -460,13 +460,13 @@ hr {
     background-color: rgb(74, 89, 161);
     border-radius: 0 0 15px 15px;
     font-size: 12px;
-      box-shadow: 2px 2px 2px grey;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .political-box h4 {
     margin-top: 15px;
 }
 
-.more-details p:hover {
-color: rgb(255, 240, 142)
+.more-details1 p:hover, .more-details2 p:hover {
+  color: rgb(255, 240, 142)
 }
