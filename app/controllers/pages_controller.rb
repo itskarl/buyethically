@@ -48,6 +48,7 @@ class PagesController < ApplicationController
 
         @company_lgbt = @found_company['lgbt']
         @company_details = @found_company['politicsdetails'].split(',') if @found_company['politicsdetails']
+        @company_green = @found_company['greendetails'].split(',') if @found_company['greendetails']
 
         #newsAPI here!
         @newssearchterm = URI.encode(@matched_company.gsub(/[!@%&"-]/,' '))

@@ -165,6 +165,23 @@
                                           <%= ((@company_environment.to_f/5)*100).to_i %>/100
                                         </div>
                                       </div>
+
+                                      <% if @company_green %>
+
+                                        <a href="#moregreen" class="more-details1" rel="modal:open"><p>MORE GREEN INFO</p></a>
+                                        <div id="moregreen" class="modal">
+                                          <h3>ENVIRONMENTAL DETAILS</h3>
+                                          <hr>
+                                        <ul>
+                                          <% if @company_green %>
+                                            <% @company_green.each do |x| %>
+                                              <li><%= x %></li>
+                                            <% end %>
+                                          <% end %>
+                                        </ul>
+                                        </div>
+                                      <% end %>
+
                                     </div>
                                   <%end%>
 
@@ -187,6 +204,14 @@
                                             <% elsif @company_politics > 3 %>
                                               <h4>MORE CONSERVATIVE THAN LIBERAL</h4>
                                             <% end %>
+
+
+                                            <% if @company_lgbt || @company_details %>
+
+                                            <a href="#morepolitics" class="more-details2" rel="modal:open"><p>MORE POLITICAL INFO</p></a>
+                                            <div id="morepolitics" class="modal">
+                                              <h3>POLITICAL DETAILS</h3>
+                                              <hr>
                                             <ul>
                                               <% if @company_lgbt && @company_lgbt > 90 %>
                                                 <li>Supports LGBT Rights & Marriage Equality
@@ -194,11 +219,15 @@
                                               <% end %>
                                               <% if @company_details %>
                                                 <% @company_details.each do |x| %>
-                                                  <li>
-                                                    <%= x %></li>
+                                                  <li><%= x %></li>
                                                 <% end %>
                                               <% end %>
                                             </ul>
+                                            </div>
+                                            <% end %>
+
+
+
 
                                           </div>
                                         </div>

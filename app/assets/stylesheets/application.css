@@ -439,3 +439,30 @@ hr {
     background: rgba(254, 254, 254, .6);
   }
 }
+
+
+.more-details1 p {
+    padding: 4px 15px;
+    width: 150px;
+    margin: -8px 5px;
+    color: white;
+    background-color: rgb(66, 107, 56);
+    border-radius: 0 0 15px 15px;
+}
+
+.more-details2 p {
+    padding: 4px 15px;
+    width: 150px;
+    margin: -46px 5px;
+    color: white;
+    background-color: rgb(74, 89, 161);
+    border-radius: 0 0 15px 15px;
+}
+
+.political-box h4 {
+    margin-top: 10px;
+}
+
+.more-details p:hover {
+color: rgb(255, 240, 142)
+}
