@@ -444,7 +444,7 @@ hr {
 .more-details1 p {
     padding: 4px 15px;
     width: 170px;
-    margin: -8px 5px;
+    margin: -8px 5px 0 0;
     color: white;
     background-color: rgb(66, 107, 56);
     border-radius: 0 0 15px 15px;
@@ -455,7 +455,7 @@ hr {
 .more-details2 p {
     padding: 4px 15px;
     width: 170px;
-    margin: -46px 5px;
+    margin: -47px 5px 0 0;
     color: white;
     background-color: rgb(74, 89, 161);
     border-radius: 0 0 15px 15px;
