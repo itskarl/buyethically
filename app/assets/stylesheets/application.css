@@ -448,6 +448,8 @@ hr {
     color: white;
     background-color: rgb(66, 107, 56);
     border-radius: 0 0 15px 15px;
+    font-size: 12;
+      box-shadow: 2px 2px 2px grey;
 }
 
 .more-details2 p {
@@ -457,6 +459,8 @@ hr {
     color: white;
     background-color: rgb(74, 89, 161);
     border-radius: 0 0 15px 15px;
+    font-size: 13px;
+      box-shadow: 2px 2px 2px grey;
 }
 
 .political-box h4 {
