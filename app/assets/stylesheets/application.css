@@ -271,6 +271,7 @@ hr {
   grid-template-columns: 1fr 1fr;
   margin: 15px 0;
   padding: 0 15px 0 0;
+  box-sizing:border-box;
 }
 
 .general-info-right {
