@@ -306,7 +306,7 @@
                                   type: "LiveStream",
                                   target: document.querySelector('#scanner-container'),
                                   constraints: {
-                                    <% if !browser.safari? || browser.safari_webapp_mode? %>
+                                    <% if !browser.safari? || !browser.safari_webapp_mode? %>
                                     width: 320,
                                     height: 300,
                                     <% end %>
