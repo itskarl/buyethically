@@ -26,9 +26,6 @@
   font-family: 'KoHo', sans-serif;
 }
 
-html {
-  overflow-x: hidden;
-}
 body {
   background: linear-gradient(0.35turn, rgba(253, 255, 247, 1), rgba(255, 237, 101, .5));
   font-size: 14px;
