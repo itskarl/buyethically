@@ -262,8 +262,11 @@
                                   <!-- NEWS! -->
 
                                 <% else %>
-                                  Error:
-                                  <%= @req['message'] %>
+                                  <div class="errormsg">
+                                    <p>ERROR: <%= @req['message'] %></p>
+                                    <img src="emoticons/032-surprised.png">
+                                  </div>
+                                  <p class="errornote">Note: If you are copying a UPC code, be sure to put the very first and last number on the barcode!</p>
                                 <% end %>
 
                               <% else %>
