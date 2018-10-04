@@ -1,157 +1,21 @@
-<img class="found display-none animated infinite pulse" id="found" src="/emoticons/041-detective.png">
 
 <center>
 
 <main class="main-body">
 
-  <div class="scan-and-info">
+  <div class="about-page">
 
-    <!-- Div to show the scanner -->
-    <div id="scanner-container"></div>
 
-    <input type="button" id="btn" value="START BARCODE SCANNER!"/>
 
-    <%= form_tag(root_path, method: :get, :id => 'acquire_upc' ) do %>
-    <%= text_field_tag :upc_input, nil, placeholder: 'UPC NUMBER' %>
-    <%= submit_tag "SEARCH" %>
-    <% end %>
-
-    <h1>Pages#about</h1>
-    <p>Find me in app/views/pages/about.html.erb</p>
+    <div class="about-header"><img src="emoticons/022-computer.png"><h1>ABOUT</h1></div>
+    <h3>What is ConCon?</h3>
+    <p> This is a tool to help you make more informed decisions about the things you buy everyday. It's as simple as taking a picture. Simply open the app and read a barcode. We'll get all the information we have on the parent company, and you make the decision on whether or not you would like to support the company and its practices with your purchase.</p>
+    <h3>How do you determine the letter grade?</h3>
+    <p> The grade is a combination of a number of factors, including the company's green rating, community impact, and corporate social responsibility (CSR score) based on a number of publically available resources from non-profits. The ratings are converted into grades out of 100 and then averaged and converted to a letter score.</p>
+    <h3>What products are currently part of the database?</h3>
+    <p>Right now this tool targets grocery and personal care products. This includes the top 100 food and grocery manufacturers and the top 50 personal care / home goods manufacturers in the United States. This covers the large majority of products, but more are being added each day! </p>
 
   </div>
 
   </main>
 </center>
-
-<!-- here be the quagga barcode reader magic! -->
-
-<script>
-  var _scannerIsRunning = false;
-
-  function startScanner() {
-    Quagga.init({
-      inputStream: {
-        name: "Live",
-        type: "LiveStream",
-        target: document.querySelector('#scanner-container'),
-        constraints: {
-          <% if !browser.safari? || browser.safari_webapp_mode? %>
-          width: 320,
-          height: 300,
-          <% end %>
-          facingMode: "environment"
-        }
-      },
-      decoder: {
-        readers: [
-          // "code_128_reader", "ean_reader", "ean_8_reader", "code_39_reader", "code_39_vin_reader", "codabar_reader",
-          "upc_reader",
-          // "upc_e_reader", "i2of5_reader"
-        ],
-        debug: {
-          showCanvas: true,
-          showPatches: true,
-          showFoundPatches: true,
-          showSkeleton: true,
-          showLabels: true,
-          showPatchLabels: true,
-          showRemainingPatchLabels: true,
-          boxFromPatches: {
-            showTransformed: true,
-            showTransformedBox: true,
-            showBB: true
-          }
-        }
-      }
-    }, function (err) {
-      if (err) {
-        console.log(err);
-        return
-      }
-
-      // console.log("Initialization finished. Ready to start");
-      Quagga.start();
-
-      // Set flag to is running
-      _scannerIsRunning = true;
-    });
-
-    Quagga.onProcessed(function (result) {
-      var drawingCtx = Quagga.canvas.ctx.overlay,
-        drawingCanvas = Quagga.canvas.dom.overlay;
-
-      if (result) {
-        if (result.boxes) {
-          drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-          result.boxes.filter(function (box) {
-            return box !== result.box;
-          }).forEach(function (box) {
-            Quagga.ImageDebug.drawPath(box, {
-              x: 0,
-              y: 1
-            }, drawingCtx, {
-              color: "blue",
-              lineWidth: 1
-            });
-          });
-        }
-
-        if (result.box) {
-          Quagga.ImageDebug.drawPath(result.box, {
-            x: 0,
-            y: 1
-          }, drawingCtx, {
-            color: "#00F",
-            lineWidth: 1
-          });
-        }
-
-        if (result.codeResult && result.codeResult.code) {
-          Quagga.ImageDebug.drawPath(result.line, {
-            x: 'x',
-            y: 'y'
-          }, drawingCtx, {
-            color: 'red',
-            lineWidth: 3
-          });
-        }
-      }
-    });
-
-    Quagga.onDetected(function (result) {
-      console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-      document.getElementById('upc_input').value = result.codeResult.code;
-      document.getElementById('this_is_upc').innerHTML = result.codeResult.code;
-      document.forms["acquire_upc"].submit();
-      document.getElementById('found').classList.remove('display-none');
-      Quagga.stop();
-
-    });
-
-  }
-
-  // Start/stop scanner
-  document.getElementById("btn").addEventListener("click", function () {
-    if (_scannerIsRunning) {
-      Quagga.stop();
-    } else {
-      startScanner();
-    }
-  }, false);
-
-  document.getElementById("btnTwo").addEventListener("click", function () {
-    if (_scannerIsRunning) {
-      Quagga.stop();
-    } else {
-      startScanner();
-    }
-  }, false);
-
-</script>
-
-<script>
-  window.addEventListener("scroll", function () {
-    document.getElementById("more").innerHTML = "";
-  });
-</script>

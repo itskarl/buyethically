@@ -47,12 +47,12 @@ main {
 
 a {
   text-decoration: none;
-  color: rgba(62, 182, 113, 1);
+  color: rgba(50, 144, 90, 1);
 }
 
 a:hover, a:visited, a::selection {
   text-decoration: none;
-  color: rgba(182, 169, 70, 1);
+  color: rgba(138, 129, 67, 1);
 }
 
 h1, h2, h3, h4, h5, h5 {
@@ -86,6 +86,48 @@ hr {
   justify-content: flex-start;
   min-height: calc(100vh - 40px);
   /* max-width: 640px; */
+}
+
+.credits-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content:flex-start;
+  flex-direction: column;
+  text-align: right
+
+
+}
+.about-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 40px);
+  max-width: 600px;
+}
+
+.about-page h1 {
+  margin: 20px 10px;
+  color: rgb(32, 110, 98);
+}
+
+.about-page h3 {
+  color: rgb(61, 102, 156)
+}
+
+.about-page p {
+  margin: 10px 20px 20px 20px;
+}
+.about-page img {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+}
+.about-header {
+  display:flex;
+  margin: 20px;
 }
 
 .found {
