@@ -23,7 +23,7 @@
       <% if @req['status'] == 200 %>
         <div class="general-info">
 
-          <div class="general-info-left">
+          <div class="general-info-left animated bounceInLeft">
 
             <% if @company_score %>
 
@@ -147,7 +147,7 @@
                                   </div>
                                   <br>
                                   <% if @company_csr %>
-                                    <div class="csr">
+                                    <div class="csr animated bounceIn">
                                       <h4>CORPORATE SOCIAL RESPONSIBILITY</h4>
                                       <div class="csr-bar">
                                         <div class="csr-fill" style="width: <%= @company_csr %>%">
@@ -158,7 +158,7 @@
                                   <%end%>
 
                                   <% if @company_environment %>
-                                    <div class="environment">
+                                    <div class="environment animated bounceIn">
                                       <h4>ENVIRONMENTAL CONCIENTIOUSNESS</h4>
                                       <div class="environment-bar">
                                         <div class="environment-fill" style="width: <%= (@company_environment.to_f/5)*100 %>%">
