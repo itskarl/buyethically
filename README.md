@@ -11,7 +11,7 @@ This is my first mobile-first web application. The site is optimized for the mob
 The 'egg-man' character is sourced from Flaticon and utilized as a mascot for the site. His colors were utilized across the site for a cohesive look.
 
 ### LANGUAGES USED
-Ruby on Rails, HTML, CSS, JAVSASCRIPT, jQuery, AJAX
+Ruby on Rails, HTML, CSS, Javascript, jQuery, AJAX
 
 ### FEATURES
 
