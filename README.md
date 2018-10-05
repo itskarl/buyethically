@@ -1,7 +1,7 @@
 # THE CONSCIENTIOUS CONSUMER APP
 
 <center>
-![desktop](concon.gif)
+<img src="concon.gif">
 </center>
 
 ### DESCRIPTION
