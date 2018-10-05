@@ -1,6 +1,8 @@
 # THE CONSCIENTIOUS CONSUMER APP
 
+<center>
 ![desktop](concon.gif)
+</center>
 
 ### DESCRIPTION
 This app is a tool to help consumers make more informed decisions about their daily purchases.
