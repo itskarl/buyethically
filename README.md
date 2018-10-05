@@ -1,24 +1,40 @@
-# README
+# THE CONSCIENTIOUS CONSUMER APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![desktop](concon.gif)
 
-Things you may want to cover:
+### DESCRIPTION
+This app is a tool to help consumers make more informed decisions about their daily purchases.
+It uses
 
-* Ruby version
+### DESIGN
+This is my first mobile-first web application. It was optimized for the web, and designed with a very user-friendly interface in mind.
+The 'egg-man' character is sourced from Flaticon and utilized as a mascot for the site. His colors were utilized across the site for a cohesive look.
 
-* System dependencies
+### LANGUAGES USED
+Ruby on Rails, HTML, CSS, JAVSASCRIPT, AJAX
 
-* Configuration
+### FEATURES
 
-* Database creation
+- Created and sourced data from multiple sources to create my own API and RESTful interface for company ratings
+- Utilizes quagga js barcode reader for quick light-weight front-end information processing
+- Designed with very user-friendly interface and visually appealing graphics
+- Features News API to provide additional information on companies
 
-* Database initialization
+### RESOURCES
 
-* How to run the test suite
+For this project, the following resources and frameworks were utilized in building the site:
 
-* Services (job queues, cache servers, search engines, etc.)
+- [Barcodeable](https://api.barcodable.com/): An API that helps find company information based on UPC number
+- [Materialize CSS Framework](https://materializecss.com/): provided the grid framework
+- [quaggaJS](https://serratus.github.io/quaggaJS/): Javascript barcode reader library
+- [Animate CSS](https://daneden.github.io/animate.css/): tool for simple site animations
+- [Font Awesome](https://fontawesome.com/icons?d=gallery): specialized icons!
+- [Flaticon](https://www.flaticon.com/): Illustration and site mascot sourced from here
+- [BridgeAPI](https://bridge.buddyweb.fr/): Helped convery my excel data into RESTful API
+- [Font Awesome](https://fontawesome.com/icons?d=gallery): specialized icons!
+- [CSR Hub](https://www.csrhub.com/): One of my resource used for company data.
+- [Shop Ethical](https://guide.ethical.org.au): Another site that provided company data.
 
-* Deployment instructions
 
-* ...
+## CREDITS
+Designed, Coded, and Created Karl Rodulfo
