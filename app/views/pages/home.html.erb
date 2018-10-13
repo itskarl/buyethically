@@ -248,13 +248,15 @@
                                     <div class="news-section">
                                       <hr>
                                       <h3>RECENT NEWS ON
+
                                         <%= @matched_company.upcase %></h3><br>
                                       <% @newsarticles[0..4].each do |x| %>
+                                      <div class="each-news">
                                         <a href="<%= x['url']%>"><%= x['title']%></a><br>
                                         <small>(<%= x['source']['name']%>)</small><br>
                                         <%= x['description']%>
+                                      </div>
 
-                                        <br>
                                       <%end%>
                                     </div>
                                   <% end %>

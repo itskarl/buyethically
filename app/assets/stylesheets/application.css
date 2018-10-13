@@ -574,3 +574,7 @@ hr {
 .general-info-left h4 {
     text-align: left;
 }
+
+.each-news {
+  margin: 10px 0;
+}
