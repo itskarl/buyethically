@@ -386,6 +386,9 @@ hr {
 
 .welcomeleft {
   padding: 0 15px 0 0;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
 }
 
 .welcome img {
@@ -558,4 +561,12 @@ hr {
 
 .errornote {
   padding: 0 30px;
+}
+
+.demo {
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.63);
+  border-radius: 20px;
+
 }
