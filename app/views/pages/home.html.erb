@@ -119,7 +119,7 @@
 
                                 </div>
 
-                                <br>
+
 
                                 <div class="scores">
 
@@ -129,7 +129,7 @@
                                       Manufacturer:
                                       <%= @req['item']['matched_items'][0]['manufacturer'] %>
                                     <% end %>
-                                    <br><br>
+                                    <br>
                                     <% if @found_company == nil && @matched_company == nil %>
 
                                       <div class="sorry">
@@ -253,7 +253,7 @@
                                         <a href="<%= x['url']%>"><%= x['title']%></a><br>
                                         <small>(<%= x['source']['name']%>)</small><br>
                                         <%= x['description']%>
-                                        <br>
+                                        
                                         <br>
                                       <%end%>
                                     </div>
