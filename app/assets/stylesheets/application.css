@@ -570,3 +570,7 @@ hr {
   border-radius: 20px;
 
 }
+
+.general-info-left h4 {
+    text-align: left;
+}
