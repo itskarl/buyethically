@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
       # this is my own API, uploaded to buddyweb server where we find company info
       @data2 = Curl::Easy.perform("https://api.jsonbin.io/b/5f75219265b18913fc577100")
-      @req2 = JSON.parse(@data2)
+      @req2 = JSON.parse(@data2.body_str)
 
       if @req['item'] && @req['item']['company_name']
       @thecompany = @req['item']['company_name'].downcase.gsub("the ", "")
@@ -28,14 +28,14 @@ class PagesController < ApplicationController
       #creating an abbreviation from the company name to parse through the API
       if @thecompany && @thecompany[0..3].chars.count == 4
         @company_abbrev = @thecompany[0..3].downcase
-        @found_company = JSON.parse('{"company":"Hershey Co.","political":2,"environment":3,"csr":80,"lgbt":100,"environmentmath":60,"score":80,"politicsdetails":null,"greendetails":"Human rights violations, Nanoparticles in food products, Water risk management"}')
+        @found_company = JSON.parse '{"company":"Hershey Co.","political":2,"environment":3,"csr":80,"lgbt":100,"environmentmath":60,"score":80,"politicsdetails":null,"greendetails":"Human rights violations, Nanoparticles in food products, Water risk management"}'
         @matched_company = @found_company['company'] if @found_company
       end
 
       #if you cant match the company name, try the manufacturer name
       if @matched_company == nil
         @company_abbrev = @themanufacturer[0..3].downcase if @themanufacturer
-        @found_company = JSON.parse('{"company":"Hershey Co.","political":2,"environment":3,"csr":80,"lgbt":100,"environmentmath":60,"score":80,"politicsdetails":null,"greendetails":"Human rights violations, Nanoparticles in food products, Water risk management"}')
+        @found_company = JSON.parse '{"company":"Hershey Co.","political":2,"environment":3,"csr":80,"lgbt":100,"environmentmath":60,"score":80,"politicsdetails":null,"greendetails":"Human rights violations, Nanoparticles in food products, Water risk management"}'
         @matched_company = @found_company['company'] if @found_company
       end
 
